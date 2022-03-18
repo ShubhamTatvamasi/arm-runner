@@ -14,6 +14,7 @@ jobs:
           whoami
 
           # Install Docker
+          apt install curl -y
           curl -sSL https://get.docker.com | sh
 
           docker ps
