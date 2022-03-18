@@ -15,7 +15,7 @@ jobs:
 
           # Install Docker
           apt update
-          apt install curl -y
+          apt install curl sudo -y
           curl -sSL https://get.docker.com | sh
 
           sudo docker ps
