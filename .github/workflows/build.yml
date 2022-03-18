@@ -17,9 +17,8 @@ jobs:
           apt update
           apt install curl -y
           curl -sSL https://get.docker.com | sh
-          systemctl start docker
-          sleep 10
-          systemctl status docker
+          service docker start
+          service docker status
 
           docker ps
 
