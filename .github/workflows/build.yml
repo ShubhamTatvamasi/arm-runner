@@ -17,9 +17,8 @@ jobs:
           apt update
           apt install curl -y
           curl -sSL https://get.docker.com | sh
-          dockerd-rootless-setuptool.sh install
 
-          docker ps
+          sudo docker ps
 
 
 
