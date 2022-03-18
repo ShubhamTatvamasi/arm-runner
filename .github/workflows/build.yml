@@ -11,7 +11,19 @@ jobs:
         base_image: raspios_lite_arm64:latest
         commands: |
           uname -a
-          sed -i 's/127.0.0.53/8.8.8.8/' /etc/resolv.conf
-          cat /etc/resolv.conf
-          curl -sL https://github.com/ShubhamTatvamasi/docker-install/raw/master/docker-install.sh | bash
+
+          # Install Docker
+          curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+          echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+          sudo apt-get update
+          sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+
           docker ps
+
+
+
+
