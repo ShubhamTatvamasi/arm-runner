@@ -21,6 +21,11 @@ jobs:
 
           docker ps
 
+          # Install Docker Compose
+          LATEST_VERSION=$(curl -s https://github.com/docker/compose/releases/latest | grep -o "v[0-9]\.[0-9]*\.[0-9]*")
+          curl -L "https://github.com/docker/compose/releases/download/$LATEST_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          chmod +x /usr/local/bin/docker-compose
+
           # Build AGW docker images
           git clone https://github.com/m-govind/magma.git --depth 1
           cd magma/lte/gateway/docker/
