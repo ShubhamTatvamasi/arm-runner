@@ -15,10 +15,11 @@ jobs:
 
           # Install Docker
           apt update
-          apt install curl sudo -y
+          apt install curl -y
           curl -sSL https://get.docker.com | sh
+          systemctl start docker
 
-          sudo docker ps
+          docker ps
 
 
 
