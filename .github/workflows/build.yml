@@ -12,5 +12,6 @@ jobs:
         base_image: raspios_lite_arm64:latest
         commands: |
           uname -a
+          cat /etc/resolv.conf
           curl -sL https://github.com/ShubhamTatvamasi/docker-install/raw/master/docker-install.sh | bash
           docker ps
