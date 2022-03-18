@@ -12,3 +12,4 @@ jobs:
         base_image: raspios_lite_arm64:latest
         commands: |
           uname -a
+          docker ps
