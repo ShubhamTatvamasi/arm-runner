@@ -21,6 +21,10 @@ jobs:
 
           docker ps
 
+          # Build AGW docker images
+          git clone https://github.com/m-govind/magma.git --depth 1
+          cd magma/lte/gateway/docker/
+          docker-compose build --build-arg CPU_ARCH=aarch64 --build-arg DEB_PORT=arm64
 
 
 
